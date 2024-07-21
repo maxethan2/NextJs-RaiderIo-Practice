@@ -1,6 +1,8 @@
 import {Skeleton} from "@nextui-org/skeleton";
 import {Image} from "@nextui-org/image";
 import {Snippet} from "@nextui-org/snippet";
+import { Suspense } from "react";
+import RaidProgress from "./RaidProgress";
 
 type Props = {
   characterData: Character
@@ -48,6 +50,7 @@ export default function CharacterDisplay({ characterData }: Props) {
           <h1 className={`text-3xl ${characterData.faction == 'horde' ? 'text-red-600' : 'text-blue-700'} `}>{characterData.name}</h1>
         </Skeleton>
 
+        {/* name skeleton */}
         <Skeleton
           isLoaded={characterData.exists}
           className="h-3 w-4/5 rounded-lg mt-2"
@@ -64,8 +67,8 @@ export default function CharacterDisplay({ characterData }: Props) {
           className="h-3 w-4/5 rounded-lg mt-2"
         >
           {characterData.guild != null 
-          ? <h1>{`Guild: ${characterData.guild.name} Ilvl:`}</h1>
-          : <h1>{`Guild: None Ilvl: ${characterData.itemLevel}`}</h1>
+            ? <h1>{`Guild: ${characterData.guild.name} Ilvl: ${characterData.itemLevel}`}</h1>
+            : <h1>{`Guild: None Ilvl: ${characterData.itemLevel}`}</h1>
           }
         </Skeleton>
 
@@ -88,6 +91,11 @@ export default function CharacterDisplay({ characterData }: Props) {
             {characterData.achievement_points}
           </Snippet>
         } */}
+
+        <div className="mt-2">
+          <RaidProgress characterData={characterData}/>    
+        </div> 
+
       </div>
 
     </div>

@@ -10,5 +10,10 @@ type Character = {
   profile_url: string,
   guild: { name: string, realm: string}| null,
   itemLevel: number,
-  exists: boolean
+  exists: boolean,
+  raid_progression: {
+    aberrus: {name: string, progress: string}
+    amidrassil: {name: string, progress: string},
+    vault: {name: string, progress: string}
+  }
 }

@@ -22,7 +22,12 @@ export default function CharacterInput() {
     profile_url: "none",
     guild: null,
     itemLevel: 0,
-    exists: false
+    exists: false,
+    raid_progression: {
+      aberrus: {name: 'aberrus-the-shadowed-crucible', progress: "none"},
+      amidrassil: {name: 'amirdrassil-the-dreams-hope', progress: "none"},
+      vault: {name: 'vault-of-the-incarnates', progress: "none"}
+    }
   })
 
   const handleInputChange = (type: string, event:ChangeEvent<HTMLInputElement>) => {
