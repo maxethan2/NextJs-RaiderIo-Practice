@@ -7,6 +7,12 @@ type Props = {
   characterData: Character
 }
 
+const raidColorMap = new Map<string, string>([
+  ['N', '#09ed4e'],
+  ['H', '#ed0920'],
+  ['M', '#b70ef0']
+]);
+
 export default function RaidProgress({characterData}: Props) {
   const [currentRaidImage, setCurrentRaidImage] = useState('./vault.jpg')
   const [currentRaidProgress, setCurrentRaidProgress] = useState({name: '', progress: ''})
@@ -49,7 +55,14 @@ export default function RaidProgress({characterData}: Props) {
       />
       <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 shadow-small z-10 flex flex-col " style={{width: "12.2rem", marginLeft: '0.10rem'}}>
         <p className="text-white/80" style={{fontSize: '11px'}}>{currentRaidProgress.name}</p>
-        <p className="text-tiny text-white/80">{currentRaidProgress.progress}</p>
+        
+        {currentRaidProgress.progress != 'none' && 
+          <p 
+            className="font-bold" 
+            style={{color: `${raidColorMap.get(currentRaidProgress.progress.charAt(currentRaidProgress.progress.length - 1))}`}}>
+              {currentRaidProgress.progress}
+          </p>
+        }
       </CardFooter>
       </Card>
       <Pagination 

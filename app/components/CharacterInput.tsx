@@ -1,10 +1,11 @@
 'use client'
 
-import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image} from "@nextui-org/react";
+import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, link} from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import {Input} from "@nextui-org/input";
 import { ChangeEvent, useState, useEffect } from "react";
 import CharacterDisplay from "./CharacterDisplay";
+import { FiLink } from "react-icons/fi";
 
 export default function CharacterInput() {
   const [characterName, setCharacterName] = useState('')
@@ -56,29 +57,39 @@ export default function CharacterInput() {
 
   return (
     <Card className="flex flex-row">
-      <div>
+      <div className="flex flex-col">
         <CardHeader className="flex gap-3">
-        <div className="flex flex-col">
-            <p className="text-md">RaiderIo Thingy</p>
-            <p className="text-small text-default-500">Uses RaiderIo api</p>
+          <div className="flex flex-col">
+              <p className="text-md m-auto">RaiderIo API Fun</p>
+              <p className="text-small text-default-500 m-auto">Fun Practice To Learn NextJS</p>
           </div>
         </CardHeader>
-        <CardBody >
-          <Input type='email' label='Character Realm' onChange={(event) => handleInputChange('realm', event)}/>
+        <CardBody className="">
+          <Input size='lg' type='email' label='Character Realm' onChange={(event) => handleInputChange('realm', event)}/>
 
           <Divider className="my-3"/>
 
-          <Input type='email' label='Character Name' onChange={(event) => handleInputChange('name', event)}/>
+          <Input size='lg' type='email' label='Character Name' onChange={(event) => handleInputChange('name', event)}/>
         </CardBody>
-        <Button className="m-3 w-full" variant="ghost" color="primary" isDisabled={submitButtonDisable} onClick={handleSubmit}>Submit</Button>  
+        <Button className="m-3" variant="ghost" color="primary" isDisabled={submitButtonDisable} onClick={handleSubmit}>Submit</Button>  
+
+        <Link 
+          target="_blank" 
+          isDisabled={!charachterData.exists} 
+          href={`${charachterData.profile_url}`}
+          className="m-auto mb-4"
+          isBlock={true}
+          anchorIcon="./link-icon.png"
+          >
+            RaiderIO Profile
+            <FiLink className="ml-1"/>
+        </Link>
       </div>
 
       <div className="ml-12">
         {/* <Divider orientation="vertical" className="ml-6"/> */}
         <CharacterDisplay characterData={charachterData}/>
       </div>
-
-
     </Card>
     
   )

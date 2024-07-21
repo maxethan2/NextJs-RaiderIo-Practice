@@ -79,7 +79,6 @@ export default function CharacterDisplay({ characterData }: Props) {
           <h2 className='text-xs text-yellow-200'>{`Achievement Points: ${characterData.achievement_points}`}</h2>
         </Skeleton>
 
-
         {/* {characterData.exists &&
           <Snippet
             symbol=''
