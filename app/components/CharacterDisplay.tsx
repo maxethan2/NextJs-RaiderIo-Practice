@@ -24,8 +24,8 @@ const classColorMap = new Map<string, string>([
 
 export default function CharacterDisplay({ characterData }: Props) {
   return (
-    <div className="flex flex-row items-center gap-3 mt-6 w-72">
-      <div className="flex flex-row items-center top-0">
+    <div className="flex flex-row gap-3 mt-6 w-72">
+      <div className="flex flex-row top-0">
         {/* pfp skeleton */}
         <Skeleton
           isLoaded={characterData.exists}
@@ -75,8 +75,6 @@ export default function CharacterDisplay({ characterData }: Props) {
         >
           <h2 className='text-xs text-yellow-200'>{`Achievement Points: ${characterData.achievement_points}`}</h2>
         </Skeleton>
-
-        {/* shadcn carousel for displaying raid progression */}
 
 
         {/* {characterData.exists &&

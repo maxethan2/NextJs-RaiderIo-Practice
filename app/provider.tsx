@@ -12,7 +12,7 @@ export default function Provider( { children }: { children: React.ReactNode }) {
           {/* TEMPORARY */}
         </div>
         { children }
-        <div className="pt-72 bg-black">
+        <div className="pt-32 bg-black">
           {/* TEMPORARY */}
         </div>
       </main>
