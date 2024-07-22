@@ -14,25 +14,25 @@ const raidColorMap = new Map<string, string>([
 ]);
 
 export default function RaidProgress({characterData}: Props) {
-  const [currentRaidImage, setCurrentRaidImage] = useState('./vault.jpg')
+  const [currentRaidImage, setCurrentRaidImage] = useState('./vault_cropped.webp')
   const [currentRaidProgress, setCurrentRaidProgress] = useState({name: '', progress: ''})
 
 
   const handleChange = (event: number) => {
     if (event === 1) {
-      setCurrentRaidImage('./vault.jpg')
+      setCurrentRaidImage('./vault_cropped.webp')
       const name = "Vault of the Incarnates"
       const progress = characterData.raid_progression.vault.progress
       setCurrentRaidProgress({name, progress})
     }
     else if (event === 2) {
-      setCurrentRaidImage('./aberrus.jpg')
+      setCurrentRaidImage('./aberrus_cropped.webp')
       const name = "Aberrus, the Shadowed Crucible"
       const progress = characterData.raid_progression.aberrus.progress
       setCurrentRaidProgress({name, progress})
     }
     else if (event === 3) {
-      setCurrentRaidImage('./amidrassil.jpg')
+      setCurrentRaidImage('./amidrassil_cropped.webp')
       const name = "Amirdrassil, the Dream's Hope"
       const progress = characterData.raid_progression.amidrassil.progress
       setCurrentRaidProgress({name, progress})
